@@ -31,7 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the view's delegate
         sceneView.delegate = self
 		sceneView.session.delegate = self
-        
+        sceneView.autoenablesDefaultLighting = true
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
 
@@ -81,6 +81,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 		node.addChildNode(cnode)
 	}
 
+	@IBAction func didTouchAddButton(_ sender: Any) {
+		let geometry = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.01)
+		let node = SCNNode(geometry: geometry)
+
+		node.simdPosition = positionIndicator.simdPosition
+		node.simdPosition.y += Float(geometry.height / 2)
+
+		sceneView.scene.rootNode.addChildNode(node)
+	}
+
 	func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
 		guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
 		guard let geometry = node.childNodes.first?.geometry as? SCNPlane else { return }
@@ -91,11 +101,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
 
 	func session(_ session: ARSession, didUpdate frame: ARFrame) {
-		// Do something with the new transform
 		let point = sceneView.center
-		if let result = frame.hitTest(point, types: .existingPlaneUsingGeometry).first {
 
-		}
+		guard let transform = sceneView.hitTest(point, types: [.existingPlane]).first?.worldTransform else { return }
+		positionIndicator.simdPosition = transform.translation
 	}
     
     func sessionWasInterrupted(_ session: ARSession) {

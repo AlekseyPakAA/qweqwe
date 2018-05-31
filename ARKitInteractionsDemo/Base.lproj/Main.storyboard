@@ -31,16 +31,35 @@
                                     <segue destination="K9b-VT-ptY" kind="embed" id="ehH-tb-fB3"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSy-zw-DBR">
+                                <rect key="frame" x="305" y="303" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="cNp-i7-3Sq"/>
+                                    <constraint firstAttribute="width" constant="56" id="jaI-7c-OKS"/>
+                                </constraints>
+                                <state key="normal" image="ic_plus_black"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTouchAddButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="yVf-iq-i8T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="V07-2X-LWo" firstAttribute="leading" secondItem="Qyy-Ek-vGu" secondAttribute="leading" id="AMy-4i-N0X"/>
                             <constraint firstItem="AC4-Ea-wZJ" firstAttribute="leading" secondItem="Qyy-Ek-vGu" secondAttribute="leading" id="ItV-Vn-OFT"/>
                             <constraint firstItem="Qyy-Ek-vGu" firstAttribute="bottom" secondItem="AC4-Ea-wZJ" secondAttribute="bottom" id="LOa-9O-axT"/>
+                            <constraint firstItem="Qyy-Ek-vGu" firstAttribute="bottom" secondItem="sSy-zw-DBR" secondAttribute="bottom" constant="16" id="Mge-Vo-aYF"/>
                             <constraint firstItem="V07-2X-LWo" firstAttribute="top" secondItem="Qyy-Ek-vGu" secondAttribute="top" id="Mwy-GX-cBy"/>
                             <constraint firstItem="Qyy-Ek-vGu" firstAttribute="trailing" secondItem="V07-2X-LWo" secondAttribute="trailing" id="Nj6-wM-IEF"/>
                             <constraint firstAttribute="trailing" secondItem="AC4-Ea-wZJ" secondAttribute="trailing" id="OPj-6h-2I5"/>
                             <constraint firstItem="AC4-Ea-wZJ" firstAttribute="top" secondItem="Rld-BH-y2Z" secondAttribute="top" id="jg5-4Z-rb7"/>
+                            <constraint firstItem="sSy-zw-DBR" firstAttribute="centerX" secondItem="Rld-BH-y2Z" secondAttribute="centerX" id="qIW-v5-4BD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qyy-Ek-vGu"/>
                     </view>
@@ -114,6 +133,7 @@
                             <constraint firstItem="gUC-g8-MY6" firstAttribute="leading" secondItem="R1V-m5-5gs" secondAttribute="leadingMargin" constant="16" id="IUi-cW-5RA"/>
                             <constraint firstItem="gUC-g8-MY6" firstAttribute="top" secondItem="R1V-m5-5gs" secondAttribute="topMargin" constant="16" id="l5h-yh-EaV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="sL2-wc-GOM"/>
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="DON-lk-Ejk" id="UUk-5I-y2l"/>
@@ -124,4 +144,7 @@
             <point key="canvasLocation" x="-493" y="1658"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_plus_black" width="72" height="72"/>
+    </resources>
 </document>

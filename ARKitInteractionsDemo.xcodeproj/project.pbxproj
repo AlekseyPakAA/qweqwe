@@ -15,6 +15,7 @@
 		43AE823720BFDBDB00910BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AE823520BFDBDB00910BD5 /* LaunchScreen.storyboard */; };
 		43AE823F20BFDD2300910BD5 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE823E20BFDD2300910BD5 /* Node.swift */; };
 		43AE824120BFEE4100910BD5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE824020BFEE4100910BD5 /* StatusViewController.swift */; };
+		43EC31A620C0865F008EC817 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC31A520C0865F008EC817 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		43AE823820BFDBDB00910BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43AE823E20BFDD2300910BD5 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		43AE824020BFEE4100910BD5 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		43EC31A520C0865F008EC817 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../ARGameDemo/ARGameDemo/Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				43AE823520BFDBDB00910BD5 /* LaunchScreen.storyboard */,
 				43AE823820BFDBDB00910BD5 /* Info.plist */,
 				43AE823E20BFDD2300910BD5 /* Node.swift */,
+				43EC31A520C0865F008EC817 /* Utilities.swift */,
 			);
 			path = ARKitInteractionsDemo;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				43AE824120BFEE4100910BD5 /* StatusViewController.swift in Sources */,
 				43AE823F20BFDD2300910BD5 /* Node.swift in Sources */,
 				43AE822F20BFDBD100910BD5 /* ViewController.swift in Sources */,
+				43EC31A620C0865F008EC817 /* Utilities.swift in Sources */,
 				43AE822B20BFDBD100910BD5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
