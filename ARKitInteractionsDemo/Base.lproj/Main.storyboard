@@ -1,27 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARKitInteractionsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rld-BH-y2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AC4-Ea-wZJ">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </arscnView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V07-2X-LWo">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="5gk-2t-ets"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="K9b-VT-ptY" kind="embed" id="ehH-tb-fB3"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V07-2X-LWo" firstAttribute="leading" secondItem="Qyy-Ek-vGu" secondAttribute="leading" id="AMy-4i-N0X"/>
+                            <constraint firstItem="AC4-Ea-wZJ" firstAttribute="leading" secondItem="Qyy-Ek-vGu" secondAttribute="leading" id="ItV-Vn-OFT"/>
+                            <constraint firstItem="Qyy-Ek-vGu" firstAttribute="bottom" secondItem="AC4-Ea-wZJ" secondAttribute="bottom" id="LOa-9O-axT"/>
+                            <constraint firstItem="V07-2X-LWo" firstAttribute="top" secondItem="Qyy-Ek-vGu" secondAttribute="top" id="Mwy-GX-cBy"/>
+                            <constraint firstItem="Qyy-Ek-vGu" firstAttribute="trailing" secondItem="V07-2X-LWo" secondAttribute="trailing" id="Nj6-wM-IEF"/>
+                            <constraint firstAttribute="trailing" secondItem="AC4-Ea-wZJ" secondAttribute="trailing" id="OPj-6h-2I5"/>
+                            <constraint firstItem="AC4-Ea-wZJ" firstAttribute="top" secondItem="Rld-BH-y2Z" secondAttribute="top" id="jg5-4Z-rb7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qyy-Ek-vGu"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="sceneView" destination="AC4-Ea-wZJ" id="yLM-pN-AVh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-493" y="1089"/>
+        </scene>
+        <!--Status View Controller-->
+        <scene sceneID="vRI-oQ-XW2">
+            <objects>
+                <viewController id="K9b-VT-ptY" customClass="StatusViewController" customModule="ARKitInteractionsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R1V-m5-5gs">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="85"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="gUC-g8-MY6" userLabel="Message Panel">
+                                <rect key="frame" x="36" y="16" width="125" height="32"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ycl-5y-ROi">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCB-xU-SoV">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="33"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fya-6y-1iY">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" text="Tracking status" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DON-lk-Ejk" userLabel="Messages label">
+                                                        <rect key="frame" x="16" y="8" width="93" height="16"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <size key="shadowOffset" width="1" height="1"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="DON-lk-Ejk" firstAttribute="top" secondItem="fya-6y-1iY" secondAttribute="top" constant="8" id="FuP-HE-L6x"/>
+                                                    <constraint firstItem="DON-lk-Ejk" firstAttribute="trailing" secondItem="fya-6y-1iY" secondAttribute="trailing" constant="-16" id="NAL-P5-A7c"/>
+                                                    <constraint firstItem="DON-lk-Ejk" firstAttribute="centerY" secondItem="fya-6y-1iY" secondAttribute="centerY" id="ZtD-NJ-nyi"/>
+                                                    <constraint firstItem="DON-lk-Ejk" firstAttribute="leading" secondItem="fya-6y-1iY" secondAttribute="leading" constant="16" id="rYH-mS-vvh"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="extraLight"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="JCB-xU-SoV" secondAttribute="trailing" id="DvS-eN-vaW"/>
+                                        <constraint firstItem="JCB-xU-SoV" firstAttribute="top" secondItem="ycl-5y-ROi" secondAttribute="top" id="Ev2-xB-eoX"/>
+                                        <constraint firstItem="JCB-xU-SoV" firstAttribute="leading" secondItem="ycl-5y-ROi" secondAttribute="leading" id="ciF-EQ-zJB"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DON-lk-Ejk" secondAttribute="bottom" constant="8" id="zuJ-UF-k4b"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gUC-g8-MY6" firstAttribute="leading" secondItem="R1V-m5-5gs" secondAttribute="leadingMargin" constant="16" id="IUi-cW-5RA"/>
+                            <constraint firstItem="gUC-g8-MY6" firstAttribute="top" secondItem="R1V-m5-5gs" secondAttribute="topMargin" constant="16" id="l5h-yh-EaV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="DON-lk-Ejk" id="UUk-5I-y2l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDf-nX-a7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-493" y="1658"/>
         </scene>
     </scenes>
 </document>

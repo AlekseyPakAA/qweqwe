@@ -10,24 +10,34 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    
+
+	/// The view controller that displays the status and "restart experience" UI.
+	lazy var statusViewController: StatusViewController = {
+		return childViewControllers.lazy.flatMap({ $0 as? StatusViewController }).first!
+	}()
+
+	var positionIndicator: SCNNode = {
+		let geometry = SCNSphere(radius: 0.01 )
+		geometry.firstMaterial?.diffuse.contents  = UIColor.red
+		return SCNNode(geometry: geometry)
+	}()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
+		sceneView.session.delegate = self
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+
+		statusViewController.message = "FIND A SURFACE TO PLACE AN OBJECT"
+
+		sceneView.scene.rootNode.addChildNode(positionIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +45,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+		configuration.planeDetection = .horizontal
+
+		sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -54,19 +67,36 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
+	func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+		guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+		DispatchQueue.main.async {
+			self.statusViewController.message = "SURFACE DETECTED TAP + TO PLACE AN OBJECT"
+		}
+
+		let geometry = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+		let cnode = SCNNode(geometry: geometry)
+		cnode.opacity = 1.0
+		cnode.eulerAngles.x = -.pi / 2
+
+		node.addChildNode(cnode)
+	}
+
+	func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+		guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+		guard let geometry = node.childNodes.first?.geometry as? SCNPlane else { return }
+
+		geometry.height = CGFloat(planeAnchor.extent.z)
+		geometry.width = CGFloat(planeAnchor.extent.x)
+	}
+
+
+	func session(_ session: ARSession, didUpdate frame: ARFrame) {
+		// Do something with the new transform
+		let point = sceneView.center
+		if let result = frame.hitTest(point, types: .existingPlaneUsingGeometry).first {
+
+		}
+	}
     
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay

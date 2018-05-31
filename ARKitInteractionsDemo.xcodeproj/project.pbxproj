@@ -13,6 +13,8 @@
 		43AE823220BFDBD100910BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AE823020BFDBD100910BD5 /* Main.storyboard */; };
 		43AE823420BFDBDB00910BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AE823320BFDBDB00910BD5 /* Assets.xcassets */; };
 		43AE823720BFDBDB00910BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AE823520BFDBDB00910BD5 /* LaunchScreen.storyboard */; };
+		43AE823F20BFDD2300910BD5 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE823E20BFDD2300910BD5 /* Node.swift */; };
+		43AE824120BFEE4100910BD5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AE824020BFEE4100910BD5 /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		43AE823320BFDBDB00910BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43AE823620BFDBDB00910BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43AE823820BFDBDB00910BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43AE823E20BFDD2300910BD5 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		43AE824020BFEE4100910BD5 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				43AE822A20BFDBD100910BD5 /* AppDelegate.swift */,
 				43AE822C20BFDBD100910BD5 /* art.scnassets */,
 				43AE822E20BFDBD100910BD5 /* ViewController.swift */,
+				43AE824020BFEE4100910BD5 /* StatusViewController.swift */,
 				43AE823020BFDBD100910BD5 /* Main.storyboard */,
 				43AE823320BFDBDB00910BD5 /* Assets.xcassets */,
 				43AE823520BFDBDB00910BD5 /* LaunchScreen.storyboard */,
 				43AE823820BFDBDB00910BD5 /* Info.plist */,
+				43AE823E20BFDD2300910BD5 /* Node.swift */,
 			);
 			path = ARKitInteractionsDemo;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43AE824120BFEE4100910BD5 /* StatusViewController.swift in Sources */,
+				43AE823F20BFDD2300910BD5 /* Node.swift in Sources */,
 				43AE822F20BFDBD100910BD5 /* ViewController.swift in Sources */,
 				43AE822B20BFDBD100910BD5 /* AppDelegate.swift in Sources */,
 			);
@@ -285,7 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J74552PZ47;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
 				INFOPLIST_FILE = ARKitInteractionsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,7 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J74552PZ47;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
 				INFOPLIST_FILE = ARKitInteractionsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
